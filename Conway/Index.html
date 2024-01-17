@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Conways Game of life</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <!-- EDITOR -->
+        <h3>Engine</h3> <br />
+        <p>Updates Per Second: </p> <input type="number" min="4" max="100" value="10" id="fps" /> <br />
+
+        <h3>Cells</h3> <br />
+        <p>Alive Color: </p> <input type="color" value="#EEEEEE" id="alive_col" /> <br />
+        <p>Dead Color: </p> <input type="color" value="#111111" id="dead_col" /> <br /> <br />
+
+        <h3>Border</h3> <br />
+        <p>Border Size: </p> <input type="number" max="10" min="0" value="2" id="border" /> <p>px</p> <br />
+        <p>Border Color: </p> <input type="color" value="#000000" id="border_col" /> <br /> <br />
+
+        <br /><h3>Info: </h3> <br />
+        <p id="info">Running</p>
+    </header>
+
+    <div></div>
+
+    <script src="./script.js"></script>
+</body>
