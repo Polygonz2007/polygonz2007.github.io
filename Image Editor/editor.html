@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nix</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body class="unselectable">
@@ -31,7 +31,7 @@
         <input type="button" id="undo" />
     </div>
 
-    <div id="options">
+    <div id="options" hidden="true">
         <h1 class="center">Options for "Effect"</h1>
 
         <ul>
@@ -49,10 +49,9 @@
     <div id="viewport">
         <canvas id="canvas"></canvas>
     </div>
-
-
-    <script src="script.js"></script>
-    <script src="view.js"></script>
 </body>
+
+<script src="script.js"></script>
+<script src="view.js"></script>
 
 </html>
