@@ -105,7 +105,7 @@ function undo() {
 
 
 function input(fields) {
-    
+    return 0;
 }
 
 

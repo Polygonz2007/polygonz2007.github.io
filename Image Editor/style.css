@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-image: url("./Img/Tile.png");
+    background-image: url("./img/Tile.png");
 
     color: white;
     font-family: "Consolas";
@@ -109,7 +109,7 @@ canvas {
     height: 2.5em;
     margin: 0;
 
-    background-image: url("./Img/Undo.png");
+    background-image: url("./img/Undo.png");
     background-size: contain;
     background-color: rgba(0, 0, 0, 0);
 }
