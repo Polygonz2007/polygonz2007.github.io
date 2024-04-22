@@ -232,11 +232,17 @@ function caption() {
     h += text_size;
     context.height = h;
 
+    // Clear
     context.fillColor = "#ffffff";
     context.fillRect(0, 0, w, h);
-    context.fillColor = "#000000";
-    context.drawText(text, 0, 0);
+    
+    // Text
+    context.font = text_size + "px Consolas"; // comic sans!!!
+	context.textBaseline = "top";
+	context.textAlign = "left";
+	context.fillStyle = "#000000";
 
+    // Image
     context.drawImage(data, 0, text_size);
 
     const current = getData();
