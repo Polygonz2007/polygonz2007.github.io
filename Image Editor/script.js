@@ -222,6 +222,9 @@ function noise() {
 }
 
 function caption() {
+    // Get input from user
+    input(["Caption text"]);
+
     const text = arguments[0] || "Sample text";
     const text_size = Math.floor(h / 10);
     const data = getData();
