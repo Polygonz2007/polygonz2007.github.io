@@ -230,11 +230,13 @@ function caption() {
     context.height = h;
 
     context.fillColor = "#ffffff";
-    context.drawRect(0, 0, w, h);
+    context.fillRect(0, 0, w, h);
     context.fillColor = "#000000";
     context.drawText(text, 0, 0);
 
     context.drawImage(data, 0, text_size);
 
+    const current = getData();
+    log(current, "Added caption " + text);
     return 0;
 }
