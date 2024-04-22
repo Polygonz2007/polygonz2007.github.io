@@ -60,6 +60,7 @@ doc.getElementById("invert_btn").addEventListener("click", invert);
 doc.getElementById("chromatic_abberation_btn").addEventListener("click", chromatic_abberation);
 doc.getElementById("box_blur_btn").addEventListener("click", box_blur);
 doc.getElementById("noise_btn").addEventListener("click", noise);
+doc.getElementById("caption_btn").addEventListener("click", caption);
 
 
 // util
@@ -171,19 +172,19 @@ function input(fields) {
         const iR = data[i + ys + xs];
         const r = (aR + bR + cR + dR + eR + fR + gR + hR + iR) / 9;
 
-         // Red
-         const aG = data[i - ys - xs + 1];
-         const bG = data[i - ys + 1];
-         const cG = data[i - ys + xs + 1];
-         const dG = data[i - xs + 1];
-         const eG = data[i + 1];
-         const fG = data[i + xs + 1];
-         const gG = data[i + ys - xs + 1];
-         const hG = data[i + ys + 1];
-         const iG = data[i + ys + xs + 1];
-         const g = (aG + bG + cG + dG + eG + fG + gG + hG + iG) / 9;
+        // Green
+        const aG = data[i - ys - xs + 1];
+        const bG = data[i - ys + 1];
+        const cG = data[i - ys + xs + 1];
+        const dG = data[i - xs + 1];
+        const eG = data[i + 1];
+        const fG = data[i + xs + 1];
+        const gG = data[i + ys - xs + 1];
+        const hG = data[i + ys + 1];
+        const iG = data[i + ys + xs + 1];
+        const g = (aG + bG + cG + dG + eG + fG + gG + hG + iG) / 9;
 
-          // Red
+          // Blue
         const aB = data[i - ys - xs + 2];
         const bB = data[i - ys + 2];
         const cB = data[i - ys + xs + 2];
@@ -204,7 +205,7 @@ function input(fields) {
     log(imageData, "Box blur");
   }
 
-  function noise() {
+function noise() {
     const amount = 10;
 
     const imageData = getData();
@@ -215,7 +216,25 @@ function input(fields) {
         data[i + 1] = data[i + 1] + ((-0.5 + Math.random()) * amount * 2); // green
         data[i + 2] = data[i + 2] + ((-0.5 + Math.random()) * amount * 2); // blue
     }
-    
+
     setData(imageData);
     log(imageData, "Noise (" + amount + "%)");
-  }
+}
+
+function caption() {
+    const text = arguments[0] || "Sample text";
+    const text_size = Math.floor(h / 10);
+    const data = getData();
+
+    h += text_size;
+    context.height = h;
+
+    context.fillColor = "#ffffff";
+    context.drawRect(0, 0, w, h);
+    context.fillColor = "#000000";
+    context.drawText(text, 0, 0);
+
+    context.drawImage(data, 0, text_size);
+
+    return 0;
+}
