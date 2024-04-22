@@ -246,7 +246,7 @@ function caption() {
     context.fillRect(0, 0, w, h);
     
     // Text
-    context.font = (text_size * 0.5) + "px Consolas"; // comic sans!!!
+    context.font = (text_size * 0.5) + "px Impact"; // comic sans!!!
 	context.textBaseline = "center";
 	context.textAlign = "center";
 	context.fillStyle = "#000000";
