@@ -127,8 +127,13 @@ canvas {
     text-align: center;
 }
 
+.center-div {
+    transform: translate(35%, 0);
+}
+
 .bottom {
-    margin-top: 100%;
+    position: absolute;
+    bottom: 1em;
 }
 
 .big {

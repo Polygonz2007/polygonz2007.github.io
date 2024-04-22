@@ -3,6 +3,7 @@ const doc = document;
 var image_select = doc.getElementById("image_select");
 var download = doc.getElementById("download");
 let history_list = doc.getElementById("history_list");
+let options = doc.getElementById("options");
 
 var canvas = doc.getElementById("canvas");
 var context = canvas.getContext('2d');
@@ -13,7 +14,7 @@ let w, h;
 //  action: (action to get to this image, with settings)
 //
 let history = [];
-let options = [];
+let args = [];
 
 
 // Open an image
@@ -106,6 +107,13 @@ function undo() {
 
 
 function input(fields) {
+    args = [];
+    options.hidden = false;
+
+    for (let i = 0; i < fields.length; i++) {
+
+    }
+
     return 0;
 }
 
@@ -225,27 +233,31 @@ function caption() {
     // Get input from user
     input(["Caption text"]);
 
-    const text = arguments[0] || "Sample text";
-    const text_size = Math.floor(h / 10);
-    const data = getData();
+    const text = args[0] || "Sample text";
+    const text_size = Math.floor(h * 0.17);
+    const imageData = getData();
 
     h += text_size;
+    canvas.height = h;
     context.height = h;
 
     // Clear
-    context.fillColor = "#ffffff";
+    context.fillStyle = "#ffffff";
     context.fillRect(0, 0, w, h);
     
     // Text
-    context.font = text_size + "px Consolas"; // comic sans!!!
-	context.textBaseline = "top";
-	context.textAlign = "left";
+    context.font = (text_size * 0.5) + "px Consolas"; // comic sans!!!
+	context.textBaseline = "center";
+	context.textAlign = "center";
 	context.fillStyle = "#000000";
+    context.fillText(text, w / 2, text_size / 2);
 
     // Image
-    context.drawImage(data, 0, text_size);
+    context.putImageData(imageData, 0, text_size);
 
     const current = getData();
+
     log(current, "Added caption " + text);
+    update();
     return 0;
 }
