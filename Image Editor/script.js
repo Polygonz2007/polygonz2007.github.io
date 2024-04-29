@@ -3,7 +3,11 @@ const doc = document;
 var image_select = doc.getElementById("image_select");
 var download = doc.getElementById("download");
 let history_list = doc.getElementById("history_list");
+
 let options = doc.getElementById("options");
+let options_list = doc.getElementById("options-list");
+let apply = doc.getElementById("apply");
+let cancel = doc.getElementById("cancel");
 
 var canvas = doc.getElementById("canvas");
 var context = canvas.getContext('2d');
@@ -61,7 +65,9 @@ doc.getElementById("invert_btn").addEventListener("click", invert);
 doc.getElementById("chromatic_abberation_btn").addEventListener("click", chromatic_abberation);
 doc.getElementById("box_blur_btn").addEventListener("click", box_blur);
 doc.getElementById("noise_btn").addEventListener("click", noise);
-doc.getElementById("caption_btn").addEventListener("click", caption);
+doc.getElementById("caption_btn").addEventListener("click", () => {
+    input(["Caption text"], caption)
+});
 
 
 // util
@@ -106,15 +112,32 @@ function undo() {
 }
 
 
-function input(fields) {
+function input(fields, func) {
     args = [];
     options.hidden = false;
 
-    for (let i = 0; i < fields.length; i++) {
+    options_list.innerHTML = "";
 
+    for (let i = 0; i < fields.length; i++) {
+        options_list.innerHTML += "<li>" + fields[i] + ": <input type='text' id='opt" + i + "' /></li>";
     }
 
-    return 0;
+    apply.addEventListener("click", function(e) {
+        console.log("YAHO");
+        for (let i = 0; i < fields.length; i++) {
+            args[i] = doc.getElementById("opt" + i).value || 0;
+        }
+        
+        func();
+        options.hidden = true;
+
+        this.removeEventListener('click',arguments.callee,false);
+    })
+
+    cancel.addEventListener("click", function(e) {
+        options.hidden = true;
+        this.removeEventListener('click',arguments.callee,false);
+    })
 }
 
 
@@ -230,8 +253,6 @@ function noise() {
 }
 
 function caption() {
-    // Get input from user
-    input(["Caption text"]);
 
     const text = args[0] || "Sample text";
     const text_size = Math.floor(h * 0.17);
