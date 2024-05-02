@@ -255,7 +255,7 @@ function noise() {
 function caption() {
 
     const text = args[0] || "Sample text";
-    const text_size = Math.floor(h * 0.17);
+    const text_size = Math.floor(h * 0.15);
     const imageData = getData();
 
     h += text_size;
@@ -271,14 +271,14 @@ function caption() {
 	context.textBaseline = "center";
 	context.textAlign = "center";
 	context.fillStyle = "#000000";
-    context.fillText(text, w / 2, text_size / 2);
+    context.fillText(text, w / 2, (text_size * 1.25) / 2);
 
     // Image
     context.putImageData(imageData, 0, text_size);
 
     const current = getData();
 
-    log(current, "Added caption " + text);
+    log(current, "Added caption '" + text + "'");
     update();
     return 0;
 }
