@@ -1,0 +1,15 @@
+body {
+    font-family: "Consolas";
+    margin: 0 12%;
+    background-color: black;
+}
+
+:not(body):not(a) {
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bolder;
+    text-align: center;
+}
