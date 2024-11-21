@@ -81,7 +81,7 @@ function Update() {
             let div = Divs[x][y];
             
             let Color = Vals[x][y] == 0 ? DeadCol : AliveCol;
-            div.style.backgroundColor = Color;
+            div.style.backgroundColor = "rgba(" + (x / XL) * 255 + ", " + (y / YL) * 255 + ", " + 255 + ", 1.0)";
 
             if (Bor) {
                 div.style.border = `${Border}px solid ${BorderCol}`;
