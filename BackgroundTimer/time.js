@@ -2,35 +2,31 @@
     let s = 0;
     let text = document.querySelector("#seconds");
 
+    const x = document.getElementById("demo");
 
-    while (true) {
-        await sleep(1000);
-        s += 1;
-        text.innerText = `${s} seconds`;
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
     }
 
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+    function success(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+    }
+
+    function error() {
+    alert("Sorry, no position available.");
+    }
+
+    while (true) {
+        await sleep(5000);
+        getLocation();
     }
 })()
 
-const x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-function success(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-}
-
-function error() {
-  alert("Sorry, no position available.");
-}
-
-getLocation();
