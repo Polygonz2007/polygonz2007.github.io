@@ -21,10 +21,7 @@
     alert("Sorry, no position available.");
     }
 
-    while (true) {
-        await sleep(5000);
-        getLocation();
-    }
+    getLocation();
 })()
 
 function sleep(ms) {
