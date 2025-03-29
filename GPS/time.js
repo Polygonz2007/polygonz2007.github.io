@@ -10,9 +10,10 @@ function start_watching() {
 
 function success(position) {
     const loc = position.coords;
-    data.innerHTML += "Yeh?";
+    const date = new Date();
+    const time = date.toLocaleTimeString() || "Time unavailable";
 
-    data.innerHTML += `[${Date.now().toLocaleTimeString()}]<br>LAT: ${loc.latitude}<br>LON: ${loc.longitude}`;
+    data.innerHTML += `[${time}]<br>LAT: ${loc.latitude}<br>LON: ${loc.longitude}<br><br>`;
 }
 
 function error() {
