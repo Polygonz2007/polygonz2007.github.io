@@ -1,0 +1,46 @@
+
+html, body { margin: 0; height: 100%;  overflow: hidden }
+
+body {
+    color: white;
+    font-size: 1em;
+    font-family: "League Spartan";
+}
+
+.pixel {
+    box-sizing: border-box;
+    position: absolute;
+    border: 2px solid black;
+}
+
+header {
+    position: absolute;
+    z-index: 1;
+    background-color: #124;
+
+    padding: 6px 16px; margin: 12px;
+    border: none; border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+}
+
+header > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+h3 {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+
+
+/* INPUTS */
+input[type="color"] {
+    border: none;
+    background: none;
+
+    height: 2em;
+    width: 4em;
+    margin-top: 0px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickEdit</title>
+
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body class="unselectable">
+    <!-- Bar at top -->
+    <div id="bar">
+        <p>Image:</p>
+        <input type="file" id="image_select" />
+
+        <!-- Edits -->
+        <p>Edits:</p>
+        <input type="button" id="invert_btn" value="Invert colors" />
+        <input type="button" id="chromatic_abberation_btn" value="Chromatic abberation" />
+        <input type="button" id="box_blur_btn" value="Box blur" />
+        <input type="button" id="noise_btn" value="Noise" />
+        <input type="button" id="caption_btn" value="Add caption" />
+
+        <input type="button" value="Download image" id="download" />
+    </div>
+
+    <div id="history">
+        <h2>History</h2>
+        <ul id="history_list"> </ul> 
+
+        <input type="button" id="undo" />
+    </div>
+
+    <div id="options" hidden="true">
+        <h1 class="center">Options for "Effect"</h1>
+
+        <ul id="options-list">
+        </ul>
+
+        <div class="bottom center-div">
+            <input type="button" value="Cancel" class="big" id="cancel" />
+            <input type="button" value="Apply" class="big highlight" id="apply" />
+        </div>
+    </div>
+
+    <div id="viewport">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+<script src="script.js"></script>
+<script src="view.js"></script>
+
+</html>
